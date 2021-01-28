@@ -10,7 +10,9 @@ class NotifierService
 
   def call
     @project = Project.find_by_id(@project_id)
-    project.invalid.incr if invalid?
+    if invalid?
+      project.invalid_count.incr
+    end
   end
 
   def invalid?

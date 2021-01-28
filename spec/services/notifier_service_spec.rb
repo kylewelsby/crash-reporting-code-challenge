@@ -43,19 +43,19 @@ RSpec.describe NotifierService, type: :model do
       it "increments the invalid counter when severity is not in list" do
         expect {
           described_class.new(project.id, "debug", message, stacktrace, metadata).call
-        }.to change(project.invalid, :value).by(1)
+        }.to change(project.invalid_count, :value).by(1)
       end
 
       it "increments the invalid message is blank" do
         expect {
           described_class.new(project.id, severity, "", stacktrace, metadata).call
-        }.to change(project.invalid, :value).by(1)
+        }.to change(project.invalid_count, :value).by(1)
       end
 
       it "increments the invalid stacktrace is missing file" do
         expect {
           described_class.new(project.id, severity, message, [{method: "StandardError"}], metadata).call
-        }.to change(project.invalid, :value).by(1)
+        }.to change(project.invalid_count, :value).by(1)
       end
     end
   end

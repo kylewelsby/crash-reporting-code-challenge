@@ -1,4 +1,4 @@
 class Project < ApplicationRecord
   include Redis::Objects
-  counter :invalid
+  counter :invalid_count
 end
