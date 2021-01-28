@@ -27,7 +27,7 @@ RSpec.describe "Notifiers", type: :request do
   end
 
   describe "POST /create" do
-    it "returns http success" do
+    it "returns http accepted" do
       expect(NotifierJob).to receive(:perform_later)
         .with("1234", "error", "An error occurred", any_args)
         .and_call_original
