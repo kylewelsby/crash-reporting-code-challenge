@@ -1,6 +1,10 @@
 require "rails_helper"
 
 RSpec.describe NotifierJob, type: :job do
+  let :project do
+    Project.create!
+  end
+
   let :stacktrace do
     [
       {
@@ -28,8 +32,7 @@ RSpec.describe NotifierJob, type: :job do
 
   it "passes to NotiferService to calculate the validility" do
     expect(NotifierService).to receive(:new)
-      .with("1234", "error", "An error occurred", stacktrace, metadata)
-      .and_call_original
-    subject.perform("1234", "error", "An error occurred", stacktrace, metadata)
+      .with(project.id, "error", "An error occurred", stacktrace, metadata).and_call_original
+    subject.perform(project.id, "error", "An error occurred", stacktrace, metadata)
   end
 end
