@@ -31,8 +31,8 @@ RSpec.describe "Notifiers", type: :request do
       expect(NotifierJob).to receive(:perform_later)
         .with("1234", "error", "An error occurred", any_args)
         .and_call_original
-      post "/notify", params: { 
-        project_id: "1234", 
+      post "/notify", params: {
+        project_id: "1234",
         severity: "error",
         message: "An error occurred",
         stacktrace: stacktrace,
