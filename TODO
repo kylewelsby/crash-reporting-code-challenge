@@ -15,11 +15,12 @@ Basic Crash Processor:
     POST /notify
     ✔ Redis dependency @done(21-01-28 20:09)
     ✔ Notifier endpont @started(21-01-28 20:09) @done(21-01-28 20:15) @lasted(6m15s)
-    ☐ Queue a job to process the payload
+    ✔ Queue a job to process the payload @started(21-01-28 20:34) @done(21-01-28 21:00) @lasted(26m5s)
     ✔ Respond with HTTP 202 @started(21-01-28 20:14) @done(21-01-28 20:14) @lasted(36s)
     ☐ Document with Apiaray
+    ☐ Secure the API
   ActionJob asynchronous processor:
-    ☐ validate payload (using the API spec in CHALLENGE.md)
+    ☐ validate payload (using the API spec in CHALLENGE.md) @started(21-01-28 20:34)
     ☐ count invalid notifications
     ☐ count valid notifications of kind
     ☐ random slowdown between 10ms - 1000ms
