@@ -2,16 +2,18 @@
 
 Setup:
   ✔ Start a repository for this code challenge @started(21-01-28 18:44) @done(21-01-28 18:44) @lasted(0s)
-  ☐ Read and understand the Challenge doc @started(21-01-28 18:44)
+  ✔ Read and understand the Challenge doc @started(21-01-28 18:44) @done(21-01-28 19:17) @lasted(33m4s)
   ✔ Converting document from PDF to Markdown for archive purpose @started(21-01-28 18:45) @done(21-01-28 18:52) @lasted(7m10s)
 
 Basic Crash Processor:
   Setup:
     ☐ create Ruby on Rails API-only application
   Endpoint:
+    POST /notify
     ☐ Redis dependency  
     ☐ Notifier endpont
     ☐ Respond with HTTP 202
+    ☐ Document with Apiaray
   ActionJob asynchronous processor:
     ☐ validate payload (using the API spec in CHALLENGE.md)
     ☐ count invalid notifications
@@ -19,9 +21,25 @@ Basic Crash Processor:
     ☐ random slowdown between 10ms - 1000ms
 
 Statistics endpoint:
+  GET /projects/1/stats
   ☐ Show invalid counter
   ☐ show `error` counter
   ☐ show `warning` counter
   ☐ show `info` counter
 
+Custom statistics:
+  ☐ filter results by metadata
+    - Count the instances of `metadata.subscription.level = "pro plan"` for projectId "100"
+    - Count the instances of `metadata.query.stats.duration > 1000` for projectId "200"
+  ☐ return results with the previous statistics endpoint
 
+Concurrency:
+  this might be already done with the ActionJob processor
+  ☐ Check service can handle multiple notifications at the same time
+
+Fair useage:
+  avoid a single `projectId` from dominating the notify queue. 
+  Early considerations would be to check the queue for the same `projectId` and schedule the events to happen at a later date. 
+  Or
+  Have a sweeping Job that would batch the events a single job if the given `projectId` throughput is becoming too high.
+  Would likely need to have a quick redis check before scheduling the job for the throughput for a given `projectId`.
