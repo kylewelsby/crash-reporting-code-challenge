@@ -12,6 +12,10 @@ class NotifierService
     @project = Project.find_by_id(@project_id)
     if invalid?
       project.invalid_count.incr
+    else
+      project.error_count.incr if severity == 'error'
+      project.warning_count.incr if severity == 'warning'
+      project.info_count.incr if severity == 'info'
     end
   end
 

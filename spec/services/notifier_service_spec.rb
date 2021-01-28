@@ -58,5 +58,23 @@ RSpec.describe NotifierService, type: :model do
         }.to change(project.invalid_count, :value).by(1)
       end
     end
+
+    it "increments the error count" do
+      expect {
+        described_class.new(project.id, "error", message, stacktrace, metadata).call
+      }.to change(project.error_count, :value).by(1)
+    end
+
+    it "increments the warning count" do
+      expect {
+        described_class.new(project.id, "warning", message, stacktrace, metadata).call
+      }.to change(project.warning_count, :value).by(1)
+    end
+
+    it "increments the info count" do
+      expect {
+        described_class.new(project.id, "info", message, stacktrace, metadata).call
+      }.to change(project.info_count, :value).by(1)
+    end
   end
 end
