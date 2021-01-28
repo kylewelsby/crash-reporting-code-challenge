@@ -13,9 +13,10 @@ Basic Crash Processor:
     ✔ Add RSpec for convenient request testing @started(21-01-28 20:00) @done(21-01-28 20:03) @lasted(3m46s)
   Endpoint:
     POST /notify
-    ☐ Redis dependency  
-    ☐ Notifier endpont
-    ☐ Respond with HTTP 202
+    ✔ Redis dependency @done(21-01-28 20:09)
+    ✔ Notifier endpont @started(21-01-28 20:09) @done(21-01-28 20:15) @lasted(6m15s)
+    ☐ Queue a job to process the payload
+    ✔ Respond with HTTP 202 @started(21-01-28 20:14) @done(21-01-28 20:14) @lasted(36s)
     ☐ Document with Apiaray
   ActionJob asynchronous processor:
     ☐ validate payload (using the API spec in CHALLENGE.md)
