@@ -7,7 +7,10 @@ Setup:
 
 Basic Crash Processor:
   Setup:
-    ☐ create Ruby on Rails API-only application
+    ✔ create Ruby on Rails API-only application @started(21-01-28 19:19) @done(21-01-28 19:33) @lasted(14m50s)
+    ☐ Write meaningful Readme 
+    ☐ Setup CI/CD
+    ☐ Add RSpec for convenient request testing
   Endpoint:
     POST /notify
     ☐ Redis dependency  
