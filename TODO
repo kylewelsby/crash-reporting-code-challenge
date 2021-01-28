@@ -28,10 +28,13 @@ Basic Crash Processor:
 
 Statistics endpoint:
   GET /projects/1/stats
-  ☐ Show invalid counter
-  ☐ show `error` counter
-  ☐ show `warning` counter
-  ☐ show `info` counter
+  ✔ Show invalid counter @started(21-01-28 22:28) @done(21-01-28 23:31) @lasted(1h3m59s)
+    initially wanted to use [ActiveModelSerializers](https://github.com/rails-api/active_model_serializers), but it is not maintained anymore, so quickly picked a alternative gem.
+    I previously used RABL years ago, I had to dig deep in my knowlage to remember how this worked. 
+    Over all, I would not have been happy with to_json for a long term solution.
+  ✔ show `error` counter @done(21-01-28 23:32)
+  ✔ show `warning` counter @done(21-01-28 23:32)
+  ✔ show `info` counter @done(21-01-28 23:32)
 
 Custom statistics:
   ☐ filter results by metadata
