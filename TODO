@@ -1,0 +1,27 @@
+# Code Challenge
+
+Setup:
+  ✔ Start a repository for this code challenge @started(21-01-28 18:44) @done(21-01-28 18:44) @lasted(0s)
+  ☐ Read and understand the Challenge doc @started(21-01-28 18:44)
+  ✔ Converting document from PDF to Markdown for archive purpose @started(21-01-28 18:45) @done(21-01-28 18:52) @lasted(7m10s)
+
+Basic Crash Processor:
+  Setup:
+    ☐ create Ruby on Rails API-only application
+  Endpoint:
+    ☐ Redis dependency  
+    ☐ Notifier endpont
+    ☐ Respond with HTTP 202
+  ActionJob asynchronous processor:
+    ☐ validate payload (using the API spec in CHALLENGE.md)
+    ☐ count invalid notifications
+    ☐ count valid notifications of kind
+    ☐ random slowdown between 10ms - 1000ms
+
+Statistics endpoint:
+  ☐ Show invalid counter
+  ☐ show `error` counter
+  ☐ show `warning` counter
+  ☐ show `info` counter
+
+
