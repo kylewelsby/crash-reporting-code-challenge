@@ -22,13 +22,44 @@ cd crash-reporting-code-challenge
 bundle install
 ```
 
+Setup the database 
+
+```
+bundle exec rails db:setup db:migrate
+```
+
 ## 🎯 Usage
 
 Start the application instance and workers using foreman
 
-
 ```
 bundle exec foreman start
+```
+
+You can make requests such as:
+
+#### Notify
+
+Notify of a application crash
+
+```
+curl -X POST \
+  'http://localhost:5000/notify' \
+  -H 'access-control-allow-origin: *' \
+  -H 'Content-Type: application/json; charset=utf-8' \
+  -d '{
+  "project_id": "1",
+  "severity": "error",
+  "message": "a error message"
+}'
+```
+
+#### Stats
+
+Show counters of crashes
+
+```
+curl http://localhost:5000/projects/1/stats
 ```
 
 ## 🤖 Testing

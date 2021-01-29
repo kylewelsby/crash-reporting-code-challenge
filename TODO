@@ -37,6 +37,16 @@ Statistics endpoint:
   ✔ show `info` counter @done(21-01-28 23:32)
 
 Custom statistics:
+  At this point I am getting tired. 
+  The application all to this point has been dealing with counting.  
+  The shortest route to a feature is not to store everything, as the data modeling may have taken some time to get right. 
+
+  A quick think ahead how to acomplish this from now would be to store the payload data, perhaps stick with redis, breaking the nested objects to keys.
+  example key;
+    project.1.EVENTTIMESTAMP.metadata.subscription.level
+
+  Then we could redis.pcall('keys', 'project.1.*.metadata.subscription.level') to get the count of matching keys.
+    
   ☐ filter results by metadata
     - Count the instances of `metadata.subscription.level = "pro plan"` for projectId "100"
     - Count the instances of `metadata.query.stats.duration > 1000` for projectId "200"

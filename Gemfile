@@ -5,6 +5,8 @@ ruby "2.7.2"
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem "rails", "~> 6.1.1"
+# Sidekiq job worker
+gem "sidekiq"
 # Use pg as the database for Active Record
 gem "pg", "~> 1.1"
 # Use redis an object store
@@ -28,8 +30,8 @@ gem "bootsnap", ">= 1.4.4", require: false
 gem "rack-cors"
 
 # JSON API output
-gem 'rabl'
-gem 'oj'
+gem "rabl"
+gem "oj"
 
 ## Boot app and workers at same time
 gem "foreman"

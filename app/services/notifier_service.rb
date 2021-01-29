@@ -9,13 +9,13 @@ class NotifierService
   end
 
   def call
-    @project = Project.find_by_id(@project_id)
+    @project = Project.find_or_create_by(id: @project_id) # create the project for showcasing convenience
     if invalid?
       project.invalid_count.incr
     else
-      project.error_count.incr if severity == 'error'
-      project.warning_count.incr if severity == 'warning'
-      project.info_count.incr if severity == 'info'
+      project.error_count.incr if severity == "error"
+      project.warning_count.incr if severity == "warning"
+      project.info_count.incr if severity == "info"
     end
   end
 
@@ -32,7 +32,7 @@ class NotifierService
   end
 
   def valid_stacktrace?
-    stacktrace.all? do |trace|
+    (stacktrace || []).all? do |trace|
       trace.key?(:file) && trace.key?(:method)
     end
   end
