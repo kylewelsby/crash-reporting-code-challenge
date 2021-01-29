@@ -1,10 +1,13 @@
+![Lint & Test](https://github.com/kylewelsby/crash-reporting-code-challenge/workflows/Lint%20&%20Test/badge.svg)
+[![Ruby Style Guide](https://img.shields.io/badge/code_style-standard-brightgreen.svg)](https://github.com/testdouble/standard)
+
 # Crash Notifier Code Challenge
 
 Code Challenge completed by [Kyle Welsby](https://github.com/kylewelsby).
 
 In this code challenge, I am tasked to produce a Application Crash notification processing API endpoint as setout in [CHALLENGE.md](./CHALLENGE.md)
 
-Useful notes and todos througout the development can be found in [TODO](./TODO)
+Useful notes and todos througout the development can be found in [TODO](./blame/main/TODO)
 
 ## ⚡️ System Dependencies
 
