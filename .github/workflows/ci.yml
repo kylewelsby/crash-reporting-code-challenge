@@ -35,6 +35,8 @@ jobs:
     services:
       redis:
         image: redis:6
+        ports:
+          - 6379:6379
         options: >-
           --health-cmd "redis-cli ping"
           --health-interval 10s
@@ -86,6 +88,5 @@ jobs:
       - name: Test 🧪
         run: bundle exec rspec
         env:
-          PGHOST: localhost
-          PGUSER: postgres
-          PGPASSWORD: postgres
+          DATABASE_URL: postgres://postgres:postgres@localhost:5432
+          REDIS_URL: redis://localhost:6379/0
